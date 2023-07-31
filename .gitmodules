@@ -1,3 +1,55 @@
 [submodule "src/project11"]
 	path = src/project11
 	url = https://github.com/CCOMJHC/project11.git
+[submodule "src/alex_mpc"]
+	url = https://github.com/CCOMJHC/alex_mpc.git
+[submodule "src/alex_path_planner"]
+	url = https://github.com/CCOMJHC/alex_path_planner.git
+[submodule "src/asv_helm"]
+	url = https://github.com/CCOMJHC/asv_helm.git
+[submodule "src/asv_sim"]
+	url = https://github.com/CCOMJHC/asv_sim.git
+[submodule "src/ben_description"]
+	url = https://github.com/CCOMJHC/ben_description.git
+[submodule "src/ben_project11"]
+	url = https://github.com/CCOMJHC/ben_project11.git
+[submodule "src/camp"]
+	url = https://github.com/CCOMJHC/camp.git
+[submodule "src/command_bridge"]
+	url = https://github.com/CCOMJHC/command_bridge
+[submodule "src/dubins_curves"]
+	url = https://github.com/CCOMJHC/dubins_curves.git
+[submodule "src/geographic_visualization_msgs"]
+	url = https://github.com/CCOMJHC/geographic_visualization_msgs.git
+[submodule "src/helm_manager"]
+	url = https://github.com/CCOMJHC/helm_manager.git
+[submodule "src/hover"]
+	url = https://github.com/CCOMJHC/hover.git
+[submodule "src/joy_to_helm"]
+	url = https://github.com/CCOMJHC/joy_to_helm.git
+[submodule "src/manda_coverage"]
+	url = https://github.com/CCOMJHC/manda_coverage.git
+[submodule "src/marine_ais"]
+	url = https://github.com/CCOMJHC/marine_ais.git
+[submodule "src/marine_msgs"]
+	url = https://github.com/CCOMJHC/marine_msgs.git
+[submodule "src/mission_manager"]
+	url = https://github.com/CCOMJHC/mission_manager.git
+[submodule "src/mru_transform"]
+	url = https://github.com/CCOMJHC/mru_transform.git
+[submodule "src/path_follower"]
+	url = https://github.com/CCOMJHC/path_follower.git
+[submodule "src/project11_msgs"]
+	url = https://github.com/CCOMJHC/project11_msgs.git
+[submodule "src/project11_nav_msgs"]
+	url = https://github.com/CCOMJHC/project11_nav_msgs.git
+[submodule "src/project11_navigation"]
+	url = https://github.com/CCOMJHC/project11_nav_msgs.git
+[submodule "src/remote_manager"]
+	url = https://github.com/CCOMJHC/remote_manager.git
+[submodule "src/s57_layer"]
+	url = https://github.com/CCOMJHC/s57_layer.git
+[submodule "src/udp_bridge"]
+	url = https://github.com/CCOMJHC/udp_bridge.git
+[submodule "src/project11_simulation"]
+	url = https://github.com/CCOMJHC/project11_simulation.git
