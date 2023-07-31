@@ -46,7 +46,7 @@ From there we can do normal Project11 things!  For example:
 
 {% code lineNumbers="true" %}
 ```bash
-source devel/setup.bash
+source ${ROS1_WS_PATH}/devel/setup.bash
 roslaunch project11_simulation sim_local.launch
 ```
 {% endcode %}
@@ -54,4 +54,25 @@ roslaunch project11_simulation sim_local.launch
 and BAM,   Project 11 is running on Ubuntu 22.04!
 
 ## Using it with ROS2
+
+Let's assume you are running the `sim_local.launch` file described in the last step.
+
+begin by attaching another terminal to the project11 docker container. &#x20;
+
+{% code lineNumbers="true" %}
+```bash
+cd <your project11_bridge directory>
+./dockerize.sh attach
+```
+{% endcode %}
+
+Now you have access to another shell in the docker container and source both ros workspaces
+
+{% code lineNumbers="true" %}
+```bash
+source ${ROS1_WS_PATH}/devel/setup.bash
+source ${ROS2_WS_PATH}/install/setup.bash
+
+```
+{% endcode %}
 
