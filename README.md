@@ -15,8 +15,43 @@ Project11 Bridge utilizes several technologies to maintain portability across Ub
 
 ## Installation
 
-### Step1: Install Docker
+### Step 1: Install Docker
 
 * Follow the instructions here to install docker for Ubuntu:  [https://docs.docker.com/engine/install/ubuntu/](https://docs.docker.com/engine/install/ubuntu/)
-* It is higly recomended that you complete the post install steps to configure your user with docker permissions:  [https://docs.docker.com/engine/install/linux-postinstall/](https://docs.docker.com/engine/install/linux-postinstall/)
+* It is highly recommended that you complete the post install steps to configure your user with docker permissions:  [https://docs.docker.com/engine/install/linux-postinstall/](https://docs.docker.com/engine/install/linux-postinstall/)
+
+### Step 2: Clone the repo
+
+This project utilizes sub modules make sure to use this special command
+
+```bash
+git clone --recurse-submodules https://github.com/USF-COMIT/project11_bridge.git
+```
+
+### Step 3: Build it
+
+Open a terminal and move to the root the `project11_bridge` directory the build the docker image with the following command.   This will take a little while.
+
+```bash
+./dockerize.sh build
+```
+
+Then you can run the image.   This will effectively give you a ROS1 shell.
+
+```bash
+./dockerize.sh run
+```
+
+From there we can do normal Project11 things!  For example:
+
+{% code lineNumbers="true" %}
+```bash
+source devel/setup.bash
+roslaunch project11_simulation sim_local.launch
+```
+{% endcode %}
+
+and BAM,   Project 11 is running on Ubuntu 22.04!
+
+## Using it with ROS2
 
