@@ -72,6 +72,7 @@ RUN useradd -ms /bin/bash project_11
 
 USER project_11
 
+
 ENTRYPOINT /bin/bash -c "/bin/bash"
 
 #ENTRYPOINT /bin/bash -c "source /usr/local/ros/devel/setup.bash ;\

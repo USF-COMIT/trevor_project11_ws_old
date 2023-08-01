@@ -11,7 +11,7 @@ DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 DOCKER_PATH=$DIR
 ROS_VERSION=${ROS_VERSION:-noetic}
 
-version="$(git describe --tags)$([ -z "$(git diff)" ] || echo "untracked")"
+version="$(git describe --tags)$([ -z "$(git diff)" ] || echo "-untracked")"
 
 CONTAINER_NAME=project11
 CONTAINER_IMAGE=project11:$version
