@@ -65,6 +65,9 @@ RUN \
 RUN \
   /bin/bash -c "source /opt/ros/${ROS_VERSION}/setup.bash ; catkin_make"
   
+ENV ROS1_WS_PATH=/usr/local/ros
+ENV ROS2_WS_PATH=/usr/local/ros2
+  
 RUN useradd -ms /bin/bash project_11
 
 USER project_11

@@ -13,8 +13,8 @@ ROS_VERSION=${ROS_VERSION:-noetic}
 
 version="$(git describe --tags)$([ -z "$(git diff)" ] || echo "untracked")"
 
-CONTAINER_NAME=project_11
-CONTAINER_IMAGE=project_11:$version
+CONTAINER_NAME=project11
+CONTAINER_IMAGE=project11:$version
 SHELL=/bin/bash
 
 
