@@ -66,13 +66,13 @@ cd <your project11_bridge directory>
 ```
 {% endcode %}
 
-Now you have access to another shell in the docker container and source both ros workspaces
+Now you have access to another shell in the docker container and source both ROS workspaces
 
 {% code lineNumbers="true" %}
 ```bash
 source ${ROS1_WS_PATH}/devel/setup.bash
 source ${ROS2_WS_PATH}/install/setup.bash
-
+ros2 run ros1_bridge dynamic_bridge --bridge-all-topics
 ```
 {% endcode %}
 
