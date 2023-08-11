@@ -1,0 +1,12 @@
+udp_bridge/remotes/robot/name: t1
+
+project11/platforms/t1:
+  robot_description: ben/robot_description
+  width: 1.7
+  length: 3.6
+  reference_x: 0.525
+  nav_sources:
+    combined:
+      position_topic: /t1/p11_interface/fix
+      orientation_topic: /t1/p11_interface/imu
+      velocity_topic: /t1/p11_interface/twist

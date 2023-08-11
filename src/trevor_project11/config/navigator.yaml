@@ -1,0 +1,56 @@
+robot:
+  turn_radius: .5
+  
+  max_velocity:
+    linear/x: 2.75
+
+  default_velocity:
+    linear/x: 2.5
+
+  footprint: [[2.65, 0], [2.6, 0.1], [2.4, 0.4], [1.9, 0.6], [1.0, 0.85], [-1.3, 0.85], [-1.35, 0.4], [-1.6, 0.35], [-1.6, -0.35], [-1.35, -0.4], [-1.3, -0.85], [1.0, -0.85], [1.9, -0.6], [2.4, -0.4], [2.6, -0.1], [2.65, 0]]
+
+plugins:
+  TaskToTaskWorkflow:
+    alex_planner: alex_path_planner/AlexPathPlanner
+
+TaskToTaskWorkflow/alex_planner:
+  planning_time: 5.0
+  time_horizon: 300.0
+  time_minimum: 10.0
+  planner: BitStar
+
+# TaskToTwistWorkflow/survey_line:
+#   steps:
+#     - alex_planner
+
+TaskToTwistWorkflow/path_follower:
+  pid:
+    Kp: 6.0
+    Ki: 0.5
+    Kd: 0.6
+
+
+costmap:
+    plugins: 
+    - {name: chart,            type: "s57_layer::S57Layer"}
+    - {name: inflation,        type: "costmap_2d::InflationLayer"}
+    publish_frequency: 0.5
+    update_frequency: 0.5
+    rolling_window: true
+    width: 10000
+    height: 10000
+    resolution: 3
+    always_send_full_costmap: true
+
+    inflation:
+        inflation_radius: 100
+        cost_scaling_factor: 0.05
+
+    chart:
+      update_timeout: 1.0
+
+    global_frame: t1/map
+    robot_base_frame: t1/base_link
+    max_obstacle_height: 5
+    footprint: [[2.65, 0], [2.6, 0.1], [2.4, 0.4], [1.9, 0.6], [1.0, 0.85], [-1.3, 0.85], [-1.35, 0.4], [-1.6, 0.35], [-1.6, -0.35], [-1.35, -0.4], [-1.3, -0.85], [1.0, -0.85], [1.9, -0.6], [2.4, -0.4], [2.6, -0.1], [2.65, 0]]
+

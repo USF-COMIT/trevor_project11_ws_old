@@ -11,3 +11,9 @@ CTestTestfile.cmake
 _deps
 
 *.workspace
+
+.idea/
+
+build/
+
+devel/

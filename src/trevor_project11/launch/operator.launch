@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<launch>
+  <arg name="namespace" default="t1"/>
+  <arg name="operator_namespace" default="operator"/>
+  <arg name="enableBridge" default="false"/>
+  <arg name="backgroundChart" default="/home/kris/Downloads/C3008120.NWS.1107964.tif"/>
+
+  <include file="$(find project11)/launch/operator_core.launch">
+    <arg name="operatorJoystick" value="false"/>
+    <arg name="namespace" value="$(arg operator_namespace)"/>
+    <arg name="robotNamespace" value="$(arg namespace)"/>
+    <arg name="enableBridge" value="$(arg enableBridge)"/>
+  </include>
+
+  <include file="$(find project11)/launch/operator_ui.launch">
+    <arg name="namespace" value="$(arg operator_namespace)"/>
+    <arg name="backgroundChart" value="$(arg backgroundChart)"/>
+  </include>
+
+  <rosparam command="load" file="$(find trevor_project11)/config/operator.yaml" ns="$(arg operator_namespace)"/>
+
+</launch>

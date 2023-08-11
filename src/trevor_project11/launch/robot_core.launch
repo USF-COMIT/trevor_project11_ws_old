@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<launch>
+  <arg name="namespace" default="t1"/>
+  <arg name="default_nav_stack" default="true"/>
+  <arg name="enableBridge" default="false"/>
+
+  <rosparam command="load" file="$(find trevor_project11)/config/trevor.yaml" ns="$(arg namespace)"/>
+
+  <include file="$(find project11)/launch/robot_core.launch">
+    <arg name="namespace" value="$(arg namespace)"/>
+    <arg name="default_nav_stack" value="$(arg default_nav_stack)"/>
+    <arg name="enableBridge" value="$(arg enableBridge)"/>
+  </include>
+
+    <rosparam if="$(arg default_nav_stack)" file="$(find trevor_project11)/config/navigator.yaml" command="load" ns="$(arg namespace)/navigator"/>
+
+
+</launch>
