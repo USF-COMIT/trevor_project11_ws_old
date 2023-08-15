@@ -53,3 +53,6 @@
 	url = https://github.com/CCOMJHC/udp_bridge.git
 [submodule "src/project11_simulation"]
 	url = https://github.com/CCOMJHC/project11_simulation.git
+[submodule "src/rqt_udp_bridge"]
+	path = src/rqt_udp_bridge
+	url = https://github.com/CCOMJHC/rqt_udp_bridge.git

@@ -2,14 +2,16 @@
 <launch>
   <arg name="namespace" default="t1"/>
   <arg name="operator_namespace" default="operator"/>
-  <arg name="enableBridge" default="false"/>
+  <arg name="enableBridge" default="true"/>
   <arg name="backgroundChart" default="/home/kris/Downloads/C3008120.NWS.1107964.tif"/>
+  <arg name="operator_ip" />
 
   <include file="$(find project11)/launch/operator_core.launch">
     <arg name="operatorJoystick" value="false"/>
     <arg name="namespace" value="$(arg operator_namespace)"/>
     <arg name="robotNamespace" value="$(arg namespace)"/>
     <arg name="enableBridge" value="$(arg enableBridge)"/>
+
   </include>
 
   <include file="$(find project11)/launch/operator_ui.launch">
@@ -18,5 +20,6 @@
   </include>
 
   <rosparam command="load" file="$(find trevor_project11)/config/operator.yaml" ns="$(arg operator_namespace)"/>
-
+  <param name="/$(arg operator_namespace)/udp_bridge/remotes/robot/connections/default/host" value="$(arg vehicle_ip)"/>
+  <param name="/$(arg operator_namespace)/udp_bridge/remotes/robot/name" value="$(arg namespace)"/>
 </launch>
