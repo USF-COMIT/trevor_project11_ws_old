@@ -1,21 +1,86 @@
-mission_manager/default_speed: 1.28   # m/s
-mission_manager/turn_radius: 1.0
-mission_manager/hover_minimum_distance: 0.5
-mission_manager/hover_maximum_distance: 2.0
-mission_manager/hover_maximum_speed: 1.0 # m/s
 
 mru_transform/sensors:
  - name: microstrain
    topics: { position: '/t1/p11_interface/fix', orientation: '/t1/p11_interface/imu', velocity: '/t1/p11_interface/twist'}
 
-      
 helm_manager/output_type: 'helm'
-helm_manager/helm/max_speed: 2.75
-helm_manager/helm/max_yaw_speed: 0.5
+helm_manager/max_yaw_speed: 0.5
+helm_manager/max_speed: 1.0
 
-udp_bridge/remotes:
+asv_helm/pid/Kp: 0.36
+asv_helm/pid/Ki: 1.0
+asv_helm/pid/Kd: 0.01
+asv_helm/pid/upper_limit: 1.0
+asv_helm/pid/lower_limit: -1.0
+asv_helm/pid/windup_limit: 1.0
+asv_helm/pid/max_dt: 1.0
+
+
+s57_grids:
+  map_frame: t1/map
+
+  robot:
+    frame_id: t1/base_link
+    minimum_depth: 0.0
+    maximum_caution_depth: 3.0
+    overhead_clearance: 4.0
+    minimum_speed: 0.01
+    maximum_speed: 1.75
+
+  grids:
+    - name: global
+      resolution: 25.0
+      length: 175000.0
+      period: 30.0
+    - name: area
+      resolution: 6.0
+      length: 15000.0
+      period: 30.0
+    - name: local
+      resolution: 3.0
+      length: 5000.0
+      period: 1.0
+
+
+udp_bridge:
+  name: t1
+  remotes:
     operator:
-        topics:
-          navigator_costmap: {source: navigator/costmap/costmap}
-          navigator_costmap_updates: {source: navigator/costmap/costmap_updates}
+      connections:
+        default:
+          topics:
+            asv_helm_pid: {source: asv_helm/pid/debug}
+            autonomous_cmd_vel: {source: project11/piloting_mode/autonomous/cmd_vel}
+            control_cmd_vel: {source: project11/control/cmd_vel}
+            nav_visualization_markers: {source: navigator/visualization_markers}
+            odom: {source: project11/odom}
+            s57_local_grid: {source: s57_grids/grids/local}
+
+
+
+
+
+
+
+
+#mission_manager/default_speed: 1.0   # m/s
+#mission_manager/turn_radius: 1.0
+#mission_manager/hover_minimum_distance: 0.5
+#mission_manager/hover_maximum_distance: 2.0
+#mission_manager/hover_maximum_speed: 1.0 # m/s
+
+#mru_transform/sensors:
+# - name: microstrain
+#   topics: { position: '/t1/p11_interface/fix', orientation: '/t1/p11_interface/imu', velocity: '/t1/p11_interface/twist'}
+
+      
+#helm_manager/output_type: 'helm'
+#helm_manager/helm/max_speed: 2.75
+#helm_manager/helm/max_yaw_speed: 0.5
+
+#udp_bridge/remotes:
+#    operator:
+#        topics:
+#          navigator_costmap: {source: navigator/costmap/costmap}
+#          navigator_costmap_updates: {source: navigator/costmap/costmap_updates}
 
